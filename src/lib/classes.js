@@ -17,16 +17,36 @@ class Employee {
     return "Employee";
   }
 }
+const employee = new Employee("Oscar", 3, "oscar@cat.com");
+
+console.log(
+  employee.getName(),
+  employee.getId(),
+  employee.getEmail(),
+  employee.getRole()
+);
 
 class Manager extends Employee {
   constructor(name, id, email, officeNumber) {
     super(name, id, email);
     this.officeNumber = officeNumber;
   }
+  getOfficeNumber() {
+    return this.officeNumber;
+  }
   getRole() {
     return "Manager";
   }
 }
+const manager = new Manager("Tom", 1, "toml@cat.com", 27);
+
+console.log(
+  manager.getName(),
+  manager.getId(),
+  manager.getEmail(),
+  manager.getOfficeNumber(),
+  manager.getRole()
+);
 
 class Engineer extends Employee {
   constructor(name, id, email, github) {
@@ -40,6 +60,20 @@ class Engineer extends Employee {
     return "Engineer";
   }
 }
+const engineer = new Engineer(
+  "Lil Tommy",
+  2,
+  "lilTommy@cat.com",
+  "https://github.com/lilTommy"
+);
+
+console.log(
+  engineer.getName(),
+  engineer.getId(),
+  engineer.getEmail(),
+  engineer.getGithub(),
+  engineer.getRole()
+);
 
 class Intern extends Employee {
   constructor(name, id, email, school) {
@@ -53,6 +87,20 @@ class Intern extends Employee {
     return "Intern";
   }
 }
+const intern = new Intern(
+  "Kenzie",
+  4,
+  "Kenzie@cat.com",
+  "School of hard knocks"
+);
+
+console.log(
+  intern.getName(),
+  intern.getId(),
+  intern.getEmail(),
+  intern.getSchool(),
+  intern.getRole()
+);
 
 module.exports = {
   Employee,
