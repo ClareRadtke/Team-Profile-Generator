@@ -8,27 +8,23 @@ const menuQuestions = [
     type: "confirm",
     message: "Add Manager",
     name: "create-manager",
-    default: false,
   },
   {
     type: "confirm",
     message: "Add Employee",
     name: "create-employee",
-    default: false,
   },
   {
     type: "confirm",
     message: "Add Engineer",
     name: "create-engineer",
-    default: false,
   },
   {
     type: "confirm",
     message: "Add Intern",
     name: "create-intern",
-    default: false,
   },
-  { type: "confirm", message: "Exit", name: "exit", default: true },
+  { type: "confirm", message: "Exit", name: "exit" },
 ];
 
 const employeeQuestions = [
@@ -57,3 +53,33 @@ const internQuestions = [
   { type: "input", message: "Intern email", name: "email" },
   { type: "input", message: "Intern's School", name: "school" },
 ];
+
+// TODO:
+// When menuQuestion receives a Y then exit that and enter the respective create-.. questions
+// When create-.. questions entered return to menuQuestions and ask again
+function questionPrompt() {
+  inquirer
+    .prompt(menuQuestions)
+    .then((answers) => {
+      console.log(answers);
+      if (answers["create-manager"]) {
+        inquirer.prompt(managerQuestions).then((managerAnswers) => {
+          console.log(managerAnswers);
+        });
+      }
+    })
+    .catch((error) => {
+      if (error.isTtyError) {
+        console.error("tty error");
+      } else {
+        console.error(error);
+      }
+    });
+}
+
+questionPrompt();
+
+// TODO:
+// Write the template HTML code for create-.. questions to be used in
+// Write CSS to style the HTML code
+// Write tests for each class
