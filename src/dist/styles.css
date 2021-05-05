@@ -1,0 +1,46 @@
+body {
+  background-color: whitesmoke;
+}
+header {
+  color: whitesmoke;
+  background-color: #3a6a94;
+}
+
+header h1 {
+  padding: 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+#profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+  min-width: 50%;
+  max-width: 80%;
+}
+
+.card {
+  margin: 3rem 1rem;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.name-and-role {
+  color: whitesmoke;
+  background-color: #6c757d;
+  margin-bottom: .5rem;
+  padding: 1rem;
+}
+
+.card-content {
+  padding: .5rem 1rem;
+}

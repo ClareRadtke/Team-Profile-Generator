@@ -11,11 +11,6 @@ const menuQuestions = [
   },
   {
     type: "confirm",
-    message: "Add Employee",
-    name: "create-employee",
-  },
-  {
-    type: "confirm",
     message: "Add Engineer",
     name: "create-engineer",
   },
@@ -25,12 +20,6 @@ const menuQuestions = [
     name: "create-intern",
   },
   { type: "confirm", message: "Exit", name: "exit" },
-];
-
-const employeeQuestions = [
-  { type: "input", message: "Employee name", name: "name" },
-  { type: "input", message: "Employee ID number", name: "id" },
-  { type: "input", message: "Employee email", name: "email" },
 ];
 
 const managerQuestions = [
