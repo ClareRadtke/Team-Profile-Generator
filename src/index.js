@@ -5,21 +5,11 @@ const fs = require("fs");
 // TODO: Create questions arrays for users
 const menuQuestions = [
   {
-    type: "confirm",
-    message: "Add Manager",
-    name: "create-manager",
+    type: "list",
+    message: "What employee would you like to add?",
+    name: "selection",
+    choices: ["Manager", "Engineer", "Intern", "Exit"],
   },
-  {
-    type: "confirm",
-    message: "Add Engineer",
-    name: "create-engineer",
-  },
-  {
-    type: "confirm",
-    message: "Add Intern",
-    name: "create-intern",
-  },
-  { type: "confirm", message: "Exit", name: "exit" },
 ];
 
 const managerQuestions = [
@@ -43,19 +33,28 @@ const internQuestions = [
   { type: "input", message: "Intern's School", name: "school" },
 ];
 
+const responses = [];
 // TODO:
 // When menuQuestion receives a Y then exit that and enter the respective create-.. questions
 // When create-.. questions entered return to menuQuestions and ask again
-function questionPrompt() {
+// if Exit is selected from menu then exit and generate html - if no input throw error
+function init() {
+  mainMenuPrompt();
+}
+
+// init();
+
+mainMenuPrompt();
+function mainMenuPrompt() {
   inquirer
     .prompt(menuQuestions)
-    .then((answers) => {
-      console.log(answers);
-      if (answers["create-manager"]) {
-        inquirer.prompt(managerQuestions).then((managerAnswers) => {
-          console.log(managerAnswers);
-        });
-      }
+    .then((answer) => {
+      console.log(answer);
+      if (answer.selection === "Manager") managerPrompt();
+      if (answer.selection === "Engineer") engineerPrompt();
+      if (answer.selection === "Intern") internPrompt();
+      if (answer.selection === "Exit")
+        console.log("Generating Profiles", responses);
     })
     .catch((error) => {
       if (error.isTtyError) {
@@ -66,9 +65,27 @@ function questionPrompt() {
     });
 }
 
-questionPrompt();
-
-// TODO:
-// Write the template HTML code for create-.. questions to be used in
-// Write CSS to style the HTML code
-// Write tests for each class
+function managerPrompt() {
+  inquirer.prompt(managerQuestions).then((answers) => {
+    console.log(answers);
+    answers.role = "Manager";
+    responses.push(answers);
+    mainMenuPrompt();
+  });
+}
+function engineerPrompt() {
+  inquirer.prompt(engineerQuestions).then((answers) => {
+    console.log(answers);
+    answers.role = "Engineer";
+    responses.push(answers);
+    mainMenuPrompt();
+  });
+}
+function internPrompt() {
+  inquirer.prompt(internQuestions).then((answers) => {
+    console.log(answers);
+    answers.role = "Intern";
+    responses.push(answers);
+    mainMenuPrompt();
+  });
+}
