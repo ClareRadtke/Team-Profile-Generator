@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Engineer should create a new Employee instance 1`] = `
+Engineer {
+  "email": "foo@example.com",
+  "github": "JohnDoe",
+  "id": "123",
+  "name": "John Doe",
+}
+`;

@@ -6,6 +6,13 @@ See [team-profiles-sample](/dist/team-profiles-sample.html) for an example of th
 
 ![Video walkthrough of how to use the Team Profile Generator](/resources/images/walkthrough.gif)
 
+## Usage
+To run the Team Profile Generator enter the command ```node src/index.js``` into your terminal.
+
+## Testing
+There are tests for each class implemented using Jest.
+to install Jest enter the command ```npm i jest``` into your terminal.
+To run the test enter the command ```npm run test``` into your terminal.
 
 ## User Story
 AS A manager  
@@ -33,13 +40,13 @@ THEN I exit the application, and the HTML is generated
 
 ## Reqirements:
   - [x] Use the Inquirer package
-  - [ ] Use Jest package for a suite of unit tests
+  - [x] Use Jest package for a suite of unit tests
   - [x] Must have the following classes:
     - [x] Employee
     - [x] Manager
     - [x] Engineer
     - [x] Intern
-  - [ ] Each class must pass its own test
+  - [x] Each class must pass its own test
   - [x] Application to be invoked from the command line using the node ```bash node src/index.js ``` command
   - [x] A webpage (HTML file) will be generated once the prompts have been completed and exited
   - [x] The webpage will be styled using CSS

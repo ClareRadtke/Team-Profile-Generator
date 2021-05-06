@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Manager should create a new Manager instance 1`] = `
+Manager {
+  "email": "foo@example.com",
+  "id": "123",
+  "name": "John Doe",
+  "officeNumber": "100",
+}
+`;

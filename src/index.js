@@ -45,7 +45,6 @@ function mainMenuPrompt() {
   inquirer
     .prompt(menuQuestions)
     .then((answer) => {
-      console.log(answer);
       if (answer.selection === "Manager") managerPrompt();
       if (answer.selection === "Engineer") engineerPrompt();
       if (answer.selection === "Intern") internPrompt();
@@ -66,7 +65,6 @@ function mainMenuPrompt() {
 // Individual employee prompts
 function managerPrompt() {
   inquirer.prompt(managerQuestions).then((answers) => {
-    console.log("answers: ", answers);
     const manager = new Manager(
       answers.name,
       answers.id,
