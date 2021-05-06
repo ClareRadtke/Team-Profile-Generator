@@ -2,8 +2,9 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const { generateHtml } = require("./lib/generateHtml");
-// console.log(generateHtml(responses));
+const { mainMenuPrompt } = require("./lib/prompts");
 
+// Question arrays for Inquirer Prompts
 const menuQuestions = [
   {
     type: "list",
@@ -12,21 +13,18 @@ const menuQuestions = [
     choices: ["Manager", "Engineer", "Intern", "Exit"],
   },
 ];
-
 const managerQuestions = [
   { type: "input", message: "Manager name", name: "name" },
   { type: "input", message: "Manager ID number", name: "id" },
   { type: "input", message: "Manager email", name: "email" },
   { type: "input", message: "Manager office number", name: "office" },
 ];
-
 const engineerQuestions = [
   { type: "input", message: "Engineer name", name: "name" },
   { type: "input", message: "Engineer ID number", name: "id" },
   { type: "input", message: "Engineer email", name: "email" },
   { type: "input", message: "Engineer github username", name: "github" },
 ];
-
 const internQuestions = [
   { type: "input", message: "Intern name", name: "name" },
   { type: "input", message: "Intern ID number", name: "id" },
@@ -34,15 +32,15 @@ const internQuestions = [
   { type: "input", message: "Intern's School", name: "school" },
 ];
 
+// Array to store all responses within
 const responses = [];
 
 function init() {
   mainMenuPrompt();
 }
+init();
 
-// init();
-
-mainMenuPrompt();
+// Main menu & navigation prompt
 function mainMenuPrompt() {
   inquirer
     .prompt(menuQuestions)
@@ -53,6 +51,7 @@ function mainMenuPrompt() {
       if (answer.selection === "Intern") internPrompt();
       if (answer.selection === "Exit")
         console.log("Generating Profiles", responses);
+      writeToFile(generateHtml(responses));
     })
     .catch((error) => {
       if (error.isTtyError) {
@@ -62,6 +61,8 @@ function mainMenuPrompt() {
       }
     });
 }
+
+// Individual employee prompts
 
 function managerPrompt() {
   inquirer.prompt(managerQuestions).then((answers) => {
@@ -82,5 +83,12 @@ function internPrompt() {
     answers.role = "Intern";
     responses.push(answers);
     mainMenuPrompt();
+  });
+}
+
+// Generate the html file
+function writeToFile(data) {
+  fs.writeFile("./exampleIndex.html", data, (err) => {
+    if (err) console.error(err);
   });
 }

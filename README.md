@@ -32,7 +32,7 @@ WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated  
 
 ## Reqirements:
-  - [ ] Use the Inquirer package
+  - [x] Use the Inquirer package
   - [ ] Use Jest package for a suite of unit tests
   - [x] Must have the following classes:
     - [x] Employee
@@ -40,8 +40,8 @@ THEN I exit the application, and the HTML is generated
     - [x] Engineer
     - [x] Intern
   - [ ] Each class must pass its own test
-  - [ ] Application to be invoked from the command line using the node ```bash node src/index.js ``` command
-  - [ ] A webpage (HTML file) will be generated once the prompts have been completed and exited
-  - [ ] The webpage will be styled using CSS
+  - [x] Application to be invoked from the command line using the node ```bash node src/index.js ``` command
+  - [x] A webpage (HTML file) will be generated once the prompts have been completed and exited
+  - [x] The webpage will be styled using CSS
   - [ ] Provide a sample HTML file generated using the application
   - [ ] Provide a walkthrough video demonstrating the functionality of the application and passing tests

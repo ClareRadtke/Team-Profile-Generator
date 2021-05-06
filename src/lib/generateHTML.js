@@ -31,7 +31,7 @@ function generateHtml(arr) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="./src/dist/styles.css"/>
     <title>Team Profiles</title>
   </head>
   <body>
@@ -95,7 +95,7 @@ function generateEngineerCards(arr) {
             <div class="card-content">
               <p class="card-text">ID ${engineers[i].id}</p>
               <p>Email: <a href="mailto:${engineers[i].email}" class="card-link">${engineers[i].email}</a></p>
-              <p>Github: <a href="https://github.com/${engineers[i].github}" class="card-link">github.com/${engineers[i].github}</a></p>
+              <p>Github: <a href="https://github.com/${engineers[i].github}" target="_blank" class="card-link">github.com/${engineers[i].github}</a></p>
             </div>
           </div>
         </div>`;
