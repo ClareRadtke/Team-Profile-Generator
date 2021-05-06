@@ -1,8 +1,9 @@
 "use strict";
 const inquirer = require("inquirer");
 const fs = require("fs");
+const { generateHtml } = require("./lib/generateHtml");
+// console.log(generateHtml(responses));
 
-// TODO: Create questions arrays for users
 const menuQuestions = [
   {
     type: "list",
@@ -34,7 +35,6 @@ const internQuestions = [
 ];
 
 const responses = [];
-// TODO:
 
 function init() {
   mainMenuPrompt();

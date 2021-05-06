@@ -19,13 +19,6 @@ class Employee {
 }
 const employee = new Employee("Oscar", 3, "oscar@cat.com");
 
-console.log(
-  employee.getName(),
-  employee.getId(),
-  employee.getEmail(),
-  employee.getRole()
-);
-
 class Manager extends Employee {
   constructor(name, id, email, officeNumber) {
     super(name, id, email);
@@ -39,14 +32,6 @@ class Manager extends Employee {
   }
 }
 const manager = new Manager("Tom", 1, "toml@cat.com", 27);
-
-console.log(
-  manager.getName(),
-  manager.getId(),
-  manager.getEmail(),
-  manager.getOfficeNumber(),
-  manager.getRole()
-);
 
 class Engineer extends Employee {
   constructor(name, id, email, github) {
@@ -67,14 +52,6 @@ const engineer = new Engineer(
   "https://github.com/lilTommy"
 );
 
-console.log(
-  engineer.getName(),
-  engineer.getId(),
-  engineer.getEmail(),
-  engineer.getGithub(),
-  engineer.getRole()
-);
-
 class Intern extends Employee {
   constructor(name, id, email, school) {
     super(name, id, email);
@@ -92,14 +69,6 @@ const intern = new Intern(
   4,
   "Kenzie@cat.com",
   "School of hard knocks"
-);
-
-console.log(
-  intern.getName(),
-  intern.getId(),
-  intern.getEmail(),
-  intern.getSchool(),
-  intern.getRole()
 );
 
 module.exports = {
