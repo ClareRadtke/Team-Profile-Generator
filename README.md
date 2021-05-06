@@ -2,17 +2,17 @@
 
 Generate a webpage that displays a summary of your team, including contact information and employe ID.
 
-See [team-profiles-sample](/dist/team-profiles-sample.html) for an example of the output of this Generator.
+See [team-profiles-sample](./team-profiles-sample.html) for an example of the output of this Generator.
 
-![Video walkthrough of how to use the Team Profile Generator](/resources/images/walkthrough.gif)
+![Video walkthrough of how to use the Team Profile Generator](./resources/images/walkthrough.gif)
 
 ## Usage
-To run the Team Profile Generator enter the command ```node src/index.js``` into your terminal.
+To run the Team Profile Generator enter the command `node src/index.js` into your terminal.
 
 ## Testing
-There are tests for each class implemented using Jest.
-to install Jest enter the command ```npm i jest``` into your terminal.
-To run the test enter the command ```npm run test``` into your terminal.
+There are tests for each class implemented using Jest.  
+To install dependencies, run `npm install`. 
+To run the test enter the command `npm run test` into your terminal.  
 
 ## User Story
 AS A manager  
@@ -50,5 +50,5 @@ THEN I exit the application, and the HTML is generated
   - [x] Application to be invoked from the command line using the node ```bash node src/index.js ``` command
   - [x] A webpage (HTML file) will be generated once the prompts have been completed and exited
   - [x] The webpage will be styled using CSS
-  - [ ] Provide a sample HTML file generated using the application
-  - [ ] Provide a walkthrough video demonstrating the functionality of the application and passing tests
+  - [x] Provide a sample HTML file generated using the application
+  - [x] Provide a walkthrough video demonstrating the functionality of the application and passing tests

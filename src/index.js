@@ -102,7 +102,7 @@ function internPrompt() {
 
 // Generate the html file
 function writeToFile(data) {
-  fs.writeFile("./exampleIndex.html", data, (err) => {
+  fs.writeFile("./team-profiles-sample.html", data, (err) => {
     if (err) console.error(err);
   });
 }
