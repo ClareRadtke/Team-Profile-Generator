@@ -17,7 +17,6 @@ class Employee {
     return "Employee";
   }
 }
-const employee = new Employee("Oscar", 3, "oscar@cat.com");
 
 class Manager extends Employee {
   constructor(name, id, email, officeNumber) {
@@ -31,7 +30,6 @@ class Manager extends Employee {
     return "Manager";
   }
 }
-const manager = new Manager("Tom", 1, "toml@cat.com", 27);
 
 class Engineer extends Employee {
   constructor(name, id, email, github) {
@@ -45,12 +43,6 @@ class Engineer extends Employee {
     return "Engineer";
   }
 }
-const engineer = new Engineer(
-  "Lil Tommy",
-  2,
-  "lilTommy@cat.com",
-  "https://github.com/lilTommy"
-);
 
 class Intern extends Employee {
   constructor(name, id, email, school) {
@@ -64,12 +56,6 @@ class Intern extends Employee {
     return "Intern";
   }
 }
-const intern = new Intern(
-  "Kenzie",
-  4,
-  "Kenzie@cat.com",
-  "School of hard knocks"
-);
 
 module.exports = {
   Employee,

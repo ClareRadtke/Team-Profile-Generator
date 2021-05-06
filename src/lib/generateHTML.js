@@ -1,27 +1,4 @@
-const responses = [
-  { name: "tom", id: "1", email: "tom@cat.com", office: "27", role: "Manager" },
-  {
-    name: "Kenzie",
-    id: "2",
-    email: "kenken@cat.com",
-    github: "ClareRadtke",
-    role: "Engineer",
-  },
-  {
-    name: "Oscar",
-    id: "3",
-    email: "occo@cat.com",
-    school: "Monash",
-    role: "Intern",
-  },
-  {
-    name: "Me",
-    id: "33",
-    email: "me@cat.com",
-    github: "ClareRadtke",
-    role: "Engineer",
-  },
-];
+const { Manager, Engineer, Intern } = require("./classes");
 
 function generateHtml(arr) {
   return `<!DOCTYPE html>
@@ -55,79 +32,76 @@ function generateHtml(arr) {
 }
 
 function generateManagerCards(arr) {
-  const managers = arr.filter((response) => {
-    if (response.office) return response;
+  const managers = arr.filter((employee) => {
+    return employee instanceof Manager;
   });
-  let templateArr = [];
-  for (i = 0; i < managers.length; i++) {
-    const htmlTemplate = `
+  return managers
+    .map((manager) => {
+      return `
         <div class="card" style="width: 18rem;">
           <div class="card-body manager">
             <div class="name-and-role">
-              <h4 class="card-title">${managers[i].name}</h5>
+              <h4 class="card-title">${manager.name}</h5>
               <h5 class="card-subtitle mb-2 fw-normal">Manager</h6>
             </div>
             <div class="card-content">
-              <p class="card-text">ID ${managers[i].id}</p>
-              <p class="card-text">Office Number: ${managers[i].office}</p>
-              <p>Email: <a href="mailto:${managers[i].email}" class="card-link">${managers[i].email}</a></p>
+              <p class="card-text">ID ${manager.id}</p>
+              <p class="card-text">Office Number: ${manager.office}</p>
+              <p>Email: <a href="mailto:${manager.email}" class="card-link">${manager.email}</a></p>
             </div>
           </div>
         </div>`;
-    templateArr.push(htmlTemplate);
-  }
-  return templateArr.join(`\n`);
+    })
+    .join(`\n`);
 }
 
 function generateEngineerCards(arr) {
-  const engineers = arr.filter((response) => {
-    if (response.github) return response;
+  const engineers = arr.filter((employee) => {
+    return employee instanceof Engineer;
   });
-  let templateArr = [];
-  for (i = 0; i < engineers.length; i++) {
-    const htmlTemplate = `
+
+  return engineers
+    .map((engineer) => {
+      return `
         <div class="card" style="width: 18rem;">
           <div class="card-body engineer">
             <div class="name-and-role">
-              <h4 class="card-title">${engineers[i].name}</h5>
+              <h4 class="card-title">${engineer.name}</h5>
               <h5 class="card-subtitle mb-2 fw-normal">Engineer</h6>
             </div>
             <div class="card-content">
-              <p class="card-text">ID ${engineers[i].id}</p>
-              <p>Email: <a href="mailto:${engineers[i].email}" class="card-link">${engineers[i].email}</a></p>
-              <p>Github: <a href="https://github.com/${engineers[i].github}" target="_blank" class="card-link">github.com/${engineers[i].github}</a></p>
+              <p class="card-text">ID ${engineer.id}</p>
+              <p>Email: <a href="mailto:${engineer.email}" class="card-link">${engineer.email}</a></p>
+              <p>Github: <a href="https://github.com/${engineer.github}" target="_blank" class="card-link">github.com/${engineer.github}</a></p>
             </div>
           </div>
         </div>`;
-    templateArr.push(htmlTemplate);
-  }
-  const engineerHtmlOutput = templateArr.join(`\n`);
-  return engineerHtmlOutput;
+    })
+    .join(`\n`);
 }
 
 function generateInternCards(arr) {
-  const interns = arr.filter((response) => {
-    if (response.school) return response;
+  const interns = arr.filter((employee) => {
+    return employee instanceof Intern;
   });
-  let templateArr = [];
-  for (i = 0; i < interns.length; i++) {
-    const htmlTemplate = `
+  return interns
+    .map((intern) => {
+      return `
         <div class="card" style="width: 18rem;">
           <div class="card-body intern">
             <div class="name-and-role">
-              <h4 class="card-title">${interns[i].name}</h5>
+              <h4 class="card-title">${intern.name}</h5>
               <h5 class="card-subtitle mb-2 fw-normal">Intern</h6>
             </div>
             <div class="card-content">
-              <p class="card-text">ID ${interns[i].id}</p>
-              <p class="card-text">School: ${interns[i].school}</p>
-              <p>Email: <a href="mailto:${interns[i].email}" class="card-link">${interns[i].email}</a></p>
+              <p class="card-text">ID ${intern.id}</p>
+              <p class="card-text">School: ${intern.school}</p>
+              <p>Email: <a href="mailto:${intern.email}" class="card-link">${intern.email}</a></p>
             </div>
           </div>
         </div>`;
-    templateArr.push(htmlTemplate);
-  }
-  return templateArr.join(`\n`);
+    })
+    .join(`\n`);
 }
 
 module.exports.generateHtml = generateHtml;

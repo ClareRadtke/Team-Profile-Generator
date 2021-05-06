@@ -2,7 +2,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const { generateHtml } = require("./lib/generateHtml");
-const { mainMenuPrompt } = require("./lib/prompts");
+const { Manager, Engineer, Intern } = require("./lib/classes");
 
 // Question arrays for Inquirer Prompts
 const menuQuestions = [
@@ -49,9 +49,10 @@ function mainMenuPrompt() {
       if (answer.selection === "Manager") managerPrompt();
       if (answer.selection === "Engineer") engineerPrompt();
       if (answer.selection === "Intern") internPrompt();
-      if (answer.selection === "Exit")
+      if (answer.selection === "Exit") {
         console.log("Generating Profiles", responses);
-      writeToFile(generateHtml(responses));
+        writeToFile(generateHtml(responses));
+      }
     })
     .catch((error) => {
       if (error.isTtyError) {
@@ -63,25 +64,40 @@ function mainMenuPrompt() {
 }
 
 // Individual employee prompts
-
 function managerPrompt() {
   inquirer.prompt(managerQuestions).then((answers) => {
-    answers.role = "Manager";
-    responses.push(answers);
+    console.log("answers: ", answers);
+    const manager = new Manager(
+      answers.name,
+      answers.id,
+      answers.email,
+      answers.office
+    );
+    responses.push(manager);
     mainMenuPrompt();
   });
 }
 function engineerPrompt() {
   inquirer.prompt(engineerQuestions).then((answers) => {
-    answers.role = "Engineer";
-    responses.push(answers);
+    const engineer = new Engineer(
+      answers.name,
+      answers.id,
+      answers.email,
+      answers.github
+    );
+    responses.push(engineer);
     mainMenuPrompt();
   });
 }
 function internPrompt() {
   inquirer.prompt(internQuestions).then((answers) => {
-    answers.role = "Intern";
-    responses.push(answers);
+    const intern = new Intern(
+      answers.name,
+      answers.id,
+      answers.email,
+      answers.school
+    );
+    responses.push(intern);
     mainMenuPrompt();
   });
 }
