@@ -35,9 +35,7 @@ const internQuestions = [
 
 const responses = [];
 // TODO:
-// When menuQuestion receives a Y then exit that and enter the respective create-.. questions
-// When create-.. questions entered return to menuQuestions and ask again
-// if Exit is selected from menu then exit and generate html - if no input throw error
+
 function init() {
   mainMenuPrompt();
 }
@@ -67,7 +65,6 @@ function mainMenuPrompt() {
 
 function managerPrompt() {
   inquirer.prompt(managerQuestions).then((answers) => {
-    console.log(answers);
     answers.role = "Manager";
     responses.push(answers);
     mainMenuPrompt();
@@ -75,7 +72,6 @@ function managerPrompt() {
 }
 function engineerPrompt() {
   inquirer.prompt(engineerQuestions).then((answers) => {
-    console.log(answers);
     answers.role = "Engineer";
     responses.push(answers);
     mainMenuPrompt();
@@ -83,7 +79,6 @@ function engineerPrompt() {
 }
 function internPrompt() {
   inquirer.prompt(internQuestions).then((answers) => {
-    console.log(answers);
     answers.role = "Intern";
     responses.push(answers);
     mainMenuPrompt();
