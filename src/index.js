@@ -23,7 +23,7 @@ const engineerQuestions = [
   { type: "input", message: "Engineer name", name: "name" },
   { type: "input", message: "Engineer ID number", name: "id" },
   { type: "input", message: "Engineer email", name: "email" },
-  { type: "input", message: "Engineer github profile", name: "github" },
+  { type: "input", message: "Engineer github username", name: "github" },
 ];
 
 const internQuestions = [
