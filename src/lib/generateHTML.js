@@ -14,16 +14,51 @@ const responses = [
     school: "Monash",
     role: "Intern",
   },
-  // {
-  //   name: "Me",
-  //   id: "33",
-  //   email: "me@cat.com",
-  //   github: "ClareRadtke",
-  //   role: "Engineer",
-  // },
+  {
+    name: "Me",
+    id: "33",
+    email: "me@cat.com",
+    github: "ClareRadtke",
+    role: "Engineer",
+  },
 ];
+// .map over responses (takes function)
+// .find(response)
+function testMultipleCards() {
+  let engineers = responses.filter((response) => {
+    if (response.github) return response;
+  });
 
-function generateHTML() {
+  let templateArr = [];
+  for (i = 0; i < engineers.length; i++) {
+    const HtmlTemplate = `
+           <div class="card" style="width: 18rem;">
+             <div class="card-body engineer">
+               <div class="name-and-role">
+                 <h4 class="card-title">${engineers[i].name}</h5>
+                 <h5 class="card-subtitle mb-2 fw-normal">Engineer</h6>
+               </div>
+               <div class="card-content">
+                 <p class="card-text">ID ${engineers[i].id}</p>
+                 <p>Email: <a href="mailto:${engineers[i].email}" class="card-link">${engineers[i].email}</a></p>
+                 <p>Github: <a href="https://github.com/${engineers[i].github}" class="card-link">github.com/${engineers[i].github}</a></p>
+               </div>
+             </div>
+           </div>`;
+    templateArr.push(HtmlTemplate);
+  }
+  // console.log(templateArr);
+  // const iterator = templateArr.values();
+  const engineerHtmlOutput = templateArr.join(`\n`);
+  // for (const value of iterator) {
+  //   engineerHtmlOutput = value;
+  // }
+  return engineerHtmlOutput;
+}
+
+testMultipleCards();
+
+function generateHtml() {
   console.log(`<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -41,11 +76,7 @@ function generateHTML() {
     <main>
       <container id="profile-container">
 
-        ${generateManagerCard()}
-
-        ${generateEngineerCard()}
-
-        ${generateInternCard()}
+        ${testMultipleCards()}
 
       </container>
     </main>
@@ -53,7 +84,7 @@ function generateHTML() {
   </body>
   </html>`);
 }
-generateHTML();
+generateHtml();
 
 function generateManagerCard() {
   const managerDetails = responses.find((response) => {
